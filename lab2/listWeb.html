@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="myStyles.css">
+
+</head>
+<body>
+    <div id="myDiv" class="header">
+        <h2>To Do List</h2>
+        <input type="text" id="inputText" placeholder="Action to do">
+        <span onclick="newElement()" class="addButton">Add</span>
+        <span onclick="restoreElement()" class="undoButton">Undo delete</span>
+        <select class="listSelector" name="lists" id="listSelector">
+            <option class="listSelector-content" value="" selected="selected">Select List</option>
+        </select>
+    </div>
+
+    <h4 class="listClass" name="Urgent list" onclick='minimalizeList(this)'> Urgent</h4>
+    <ul id="Urgent list" ></ul>
+    <h4 class="listClass" name="Can wait list" onclick='minimalizeList(this)'>Can Wait</h4>
+    <ul id="Can wait list" ></ul>
+    <h4 class="listClass" name="Can wait longer list" onclick='minimalizeList(this)'>Can Wait Longer</h4>
+    <ul id="Can wait longer list" ></ul>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <p>Are you sure that you want delete element?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"   id="yesButton" class="btn btn-default">Yes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+
+
+    const listObjects = ["Urgent list", "Can wait list", "Can wait longer list"];
+    const listSelected = document.getElementById("listSelector");
+    let par;
+
+    window.onload = function() {
+        for (let i in listObjects) {
+            const opt = document.createElement('option');
+            opt.textContent = listObjects[i];
+            listSelected.appendChild(opt)
+        }
+    }
+
+    function newElement(){
+        const li = document.createElement("li");
+        const inputText = document.getElementById("inputText").value;
+        const element = document.createTextNode(inputText);
+        const selectedOpt = listSelected.options[listSelected.selectedIndex].text;
+
+        li.appendChild(element)
+
+        if( selectedOpt === "Select List"){
+            window.alert("Please select list")
+        }
+        else{
+
+        if (inputText === ""){
+            window.alert("Cannot add empty element");
+        }
+        else{
+            document.getElementById(selectedOpt).appendChild(li);
+        }
+        document.getElementById("inputText").value = "";
+
+        const span = $(document.createElement('span'));
+        const closeIcon = "\u00D7";
+
+        $(span).addClass("closeButton");
+        $(span).text(closeIcon);
+        $(li).append(span);
+
+
+        const elementsToClose = $(document.getElementsByClassName("closeButton"));
+
+        for (let i = 0; i < $(elementsToClose).length; i++) {
+            $(elementsToClose[i]).click(function () {
+
+                par = $(this).parent();
+
+
+                $(document).ready(function(){
+                    $("#myModal").modal({backdrop: false});
+                });
+
+                $("#yesButton").click( function (){
+                        $(par).removeAttr("style").hide();
+                    $("#myModal").modal("hide");
+                    })
+                })
+        }
+          const ul =  document.getElementById(selectedOpt);
+
+         if ( ul.children[0].className === "minimalizeStyle")
+           ul.children[ul.children.length -1 ].className = "minimalizeStyle";
+
+    }
+    }
+
+    function restoreElement(){
+          if (! $(par).hasClass("minimalizeStyle"))
+               $(par).show();
+    }
+
+    function minimalizeList(listID){
+        const listToMin = document.getElementById(listID.getAttribute("name"));
+        for(let i = 0 ; i < listToMin.children.length; i++){
+            listToMin.children[i].classList.toggle("minimalizeStyle");
+        }
+    }
+
+    const lists = document.querySelectorAll("ul");
+    for (let i = 0; i <lists.length ; i++) {
+        lists[i].addEventListener('click', function (ev) {
+            if (ev.target.tagName === 'LI') {
+                ev.target.classList.toggle('checked');
+
+                const p = ev.target.parentElement;
+                const index = Array.prototype.indexOf.call(p.children, ev.target);
+                const element = document.createElement("div");
+                const d = new Date();
+                const dateString = " \nData wykonania: " + ("0" + d.getDate()).slice(-2) + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" +
+                    d.getFullYear() + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2);
+                element.appendChild(document.createTextNode(dateString));
+                element.classList.add("dateStyle");
+
+                if (ev.target.classList.contains('checked')) {
+                    lists[i].childNodes.item(index).appendChild(element);
+                } else {
+                    lists[i].childNodes.item(index).removeChild(lists[i].childNodes.item(index).lastChild);
+                }
+            }
+        }, false);
+    }
+
+</script>
+</body>
+</html>
