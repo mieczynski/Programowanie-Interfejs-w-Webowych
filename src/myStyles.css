@@ -1,0 +1,183 @@
+
+.header {
+    background-color: #6301bd;
+    padding: 20px 70px;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+}
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.notice-header{
+    width: 1000px;
+    background: #965eb9;
+    cursor: pointer;
+    color: white;
+    font-size: 25px;
+}
+.notice{
+    border: 3px solid;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+}
+.collapse{
+    background: #f9ffe8;
+    color: #646464;
+}
+.tag{
+    border: 3px solid rgb(66, 78, 148);
+    padding: 1px;
+    border-radius: 4px;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    float: right;
+    color: #ffeafd;
+}
+
+.notice-details{
+    text-align: center;
+    margin-left: 10px;
+}
+.webBackground{
+    textAlign: center;
+    background: #e9f0ff;
+
+}
+
+.searchWindow{
+    text-align:center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    width: 400px;
+    padding: 10px;
+}
+
+.radioButtons{
+    textAlign: center;
+    color: white;
+}
+
+.addNoticeButton{
+    textAlign: center;
+    color: white;
+    background: #2f8d46;
+    font-size: 20px;
+    margin-left: 620px;
+    margin-top: 5px;
+    margin-bottom: auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.findButton{
+    textAlign: center;
+    color: white;
+    background: #1a8f85;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+
+}
+
+.newNoticeLayout{
+    text-align:center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.input-notice{
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    width: 300px;
+    margin: 10px auto;
+
+}
+
+.add-notice{
+    margin-right: 10px;
+    font-size: 18px;
+    width: 150px;
+    background: #2f8d46;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.back-button{
+    margin-right: 10px;
+    font-size: 18px;
+    width: 200px;
+    background: red;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.center{
+    text-align:center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.member-input{
+    text-align:center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.confirm-btn-active{
+    padding: 4px;
+    width: 60px;
+    border-radius: 5px;
+    background: #44b475;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.confirm-btn-nonactive{
+    padding: 4px;
+    width: 60px;
+    border-radius: 5px;
+    background: #ff2f60;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.new-member-btn{
+    margin-right: 10px;
+    font-size: 18px;
+    width: 160px;
+    background: #359ee1;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
