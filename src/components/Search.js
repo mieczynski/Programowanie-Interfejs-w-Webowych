@@ -1,16 +1,17 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import Scroll from './Scroll';
 import SearchList from './SearchList';
 import { useNavigate} from "react-router-dom";
 
-function Search({ details }) {
+function Search({ details}) {
     const [state, setState] = useState({
         descriptionSearch: true,
         tagsSearch: false,
         subjectSearch: false
     });
-
     const [searchField, setSearchField] = useState("");
+
+
     let filteredPersons;
 
     const handleInputChange = (event) => {

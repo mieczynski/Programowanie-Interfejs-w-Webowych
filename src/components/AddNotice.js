@@ -1,18 +1,19 @@
 import React, {useRef, useState} from "react";
-import {useNavigate} from "react-router-dom"
-import initialDetails from "../data/initialDetails";
+import { useNavigate} from "react-router-dom"
+import axios from "axios";
 
 
-function AddNotice() {
+function AddNotice({notices}) {
 
     const navigate = useNavigate();
     const [notice, setNotice] = useState({
-        id: initialDetails.length+1,
+        id: notices.length+1,
         name: "",
         email: "",
         description: "",
         tags: "",
-        subjects: ""
+        subjects: "",
+        url: ""
     });
 
     const handleOnClick = () => {
@@ -33,17 +34,27 @@ function AddNotice() {
         } else {
             setNotice({...notice, description: value});
         }
+        axios.get("https://picsum.photos/70/100", {
+            responseType: "arraybuffer"
+        })
+            .then((res) => {
+                const base64 = btoa(
+                    new Uint8Array(res.data).reduce(
+                        (data, byte) => data + String.fromCharCode(byte), ''
+                    )
+                )
+                setNotice({...notice, url: base64});
+            })
     }
 
     const addNotice = () => {
         if (notice.name != "" && notice.description != "" && notice.email != "" && notice.name != "" && notice.subjects != "") {
-            initialDetails.push(notice);
+            notices.push(notice);
             navigate("/");
 
         } else {
             alert("All fields must be completed");
         }
-
     }
 
         return (

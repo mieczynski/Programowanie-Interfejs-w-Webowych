@@ -1,0 +1,10 @@
+{
+  "logins":[
+    {
+      "id": 1,
+      "login": "root",
+      "password": "root",
+      "email": "root@gmail.com"
+    }
+  ]
+}

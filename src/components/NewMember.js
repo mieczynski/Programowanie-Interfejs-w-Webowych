@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
-import initialGroups from "../data/initailGroups";
 
 function NewMember({sentData, membId, passData}) {
 

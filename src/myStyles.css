@@ -181,3 +181,33 @@
     color: white;
     cursor: pointer;
 }
+.loginFields{
+    text-align:center;
+    display: block;
+    text-align:center;
+    margin: 10px auto;
+    font-size: 18px;
+    width: 180px;
+}
+.loginBtn{
+    padding: 5px;
+    width: 120px;
+    border-radius: 5px;
+    background: #01a2ce;
+    margin-right: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.registerBtn{
+    padding: 5px;
+    width: 120px;
+    border-radius: 5px;
+    background: #bbcc09;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}

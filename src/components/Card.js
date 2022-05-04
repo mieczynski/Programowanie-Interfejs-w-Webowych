@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useReducer, useRef, useState} from 'react';
 import useCollapse from 'react-collapsed';
 
 function Card({person}) {
@@ -7,14 +7,18 @@ function Card({person}) {
         };
         const {getCollapseProps, getToggleProps, isExpanded} = useCollapse(config);
 
-    const tagsToString = () => {
+
+        const tagsToString = () => {
         const array = person.tags.split(" ");
              return array.map((tag,i) => <a key={i} className="tag">{tag}</a>)
     }
 
+
     return(
+
         <div style={{background: "#f9ffe8", width: "1000px", marginLeft: "320px"}} >
         <div className="notice-header" {...getToggleProps()}>
+            <img src={`data:image/jpg;charset=utf-8;base64,${person.url}`} />
             {isExpanded ? <a className="notice-details" >Notice details</a> : <div >
                 <a style={{marginLeft: 10}}>{person.name}</a>
                 {tagsToString()}

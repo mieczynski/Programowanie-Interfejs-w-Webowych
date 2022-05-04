@@ -1,14 +1,13 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import initialGroups from "../data/initailGroups";
 import NewMember from "./NewMember";
 
-function AddNewGroup() {
+function AddNewGroup({groups}) {
 
 
     const navigate = useNavigate();
     const [notice, setNotice] = useState({
-        id: initialGroups.length + 1,
+        id: groups.length + 1,
         name: "",
         members: [],
         description: "",
@@ -47,7 +46,7 @@ function AddNewGroup() {
 
     const addNotice = () => {
         if (notice.name != "" && notice.description != "" && notice.subject != "" && notice.members.length != 0) {
-            initialGroups.push(notice);
+            groups.push(notice);
             navigate("/findGroup");
 
         } else {
