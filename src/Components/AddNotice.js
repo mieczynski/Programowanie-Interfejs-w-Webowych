@@ -6,6 +6,7 @@ import axios from "axios";
 function AddNotice({notices}) {
 
     const navigate = useNavigate();
+    const [wait, setWait] = useState(false);
     const [notice, setNotice] = useState({
         id: notices.length+1,
         name: "",
@@ -17,7 +18,7 @@ function AddNotice({notices}) {
     });
 
     const handleOnClick = () => {
-        navigate("/");
+        navigate("/findPeople");
     }
 
     const handleOnInput = (event) => {
@@ -34,6 +35,9 @@ function AddNotice({notices}) {
         } else {
             setNotice({...notice, description: value});
         }
+    }
+
+    const getPicture = () =>{
         axios.get("https://picsum.photos/70/100", {
             responseType: "arraybuffer"
         })
@@ -45,12 +49,18 @@ function AddNotice({notices}) {
                 )
                 setNotice({...notice, url: base64});
             })
+        setWait(true);
     }
 
+    if(!wait)
+        getPicture();
+
+
     const addNotice = () => {
-        if (notice.name != "" && notice.description != "" && notice.email != "" && notice.name != "" && notice.subjects != "") {
+        if (notice.name !== "" && notice.description !== "" && notice.email !== "" && notice.tags !== "" && notice.subjects !== "") {
+           if(wait){
             notices.push(notice);
-            navigate("/");
+            navigate("/findPeople");}
 
         } else {
             alert("All fields must be completed");
@@ -58,7 +68,6 @@ function AddNotice({notices}) {
     }
 
         return (
-
             <div>
                 <header className="header">
                     <div>Notice Board</div>

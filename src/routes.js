@@ -1,19 +1,13 @@
+import React from 'react';
+import Home from "./Pages/Home";
 
-// Config/routes.js
+const routes = [
+    {
+        path: '/login',
+        component: Home,
+        isPrivate: false,
+    },
 
-const routes =[
-    {
-        path:'/',
-        component: "Login"
-    },
-    {
-        path:'/dashboard',
-        component: "Dashboard"
-    },
-    {
-        path:'/*',
-        component: "PageNotFound"
-    },
-]
+];
 
-export default routes
+export default routes;

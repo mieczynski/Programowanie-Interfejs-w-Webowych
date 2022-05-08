@@ -75,7 +75,7 @@ class SearchGroup extends React.Component {
                   )} /> Subject
                       </div>
                   <div className="center">
-                  <Link to="/">
+                  <Link to="/findPeople">
                       <button type="button" className="back-button">
                           Back
                       </button>

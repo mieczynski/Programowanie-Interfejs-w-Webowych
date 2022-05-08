@@ -1,4 +1,4 @@
-import SearchGroup from "./components/SearchGroup";
+import SearchGroup from "../Components/SearchGroup";
 import React from "react";
 import GroupHeader from "./GroupHeader";
 

@@ -1,7 +1,7 @@
 
 .header {
     background-color: #6301bd;
-    padding: 20px 70px;
+    padding: 10px 70px;
     color: white;
     text-align: center;
     font-size: 50px;
@@ -210,4 +210,36 @@
     color: white;
     cursor: pointer;
     font-size: 18px;
+}
+.error {
+    font-size: 18px;
+    color: #bb0000;
+    text-align:center;
+    display: block;
+    text-align:center;
+
+}
+.login{
+    background-color: #6301bd;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 0px;
+    text-align: right;
+}
+
+.logoutBtn{
+    padding: 4px;
+    width: 100px;
+    border-radius: 5px;
+    background: #ff6363;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 12px;
+}
+
+.image{
+    width: 40px;
+    height: 60px;
 }

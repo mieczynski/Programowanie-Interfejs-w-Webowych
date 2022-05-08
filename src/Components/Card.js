@@ -18,9 +18,10 @@ function Card({person}) {
 
         <div style={{background: "#f9ffe8", width: "1000px", marginLeft: "320px"}} >
         <div className="notice-header" {...getToggleProps()}>
-            <img src={`data:image/jpg;charset=utf-8;base64,${person.url}`} />
-            {isExpanded ? <a className="notice-details" >Notice details</a> : <div >
-                <a style={{marginLeft: 10}}>{person.name}</a>
+            {isExpanded ? <a className="notice-details" >Notice details</a> :
+                <div>
+                    <img className={"image"} src={`data:image/jpg;charset=utf-8;base64,${person.url}`} />
+                    <a style={{marginLeft: 10}}>{person.name}</a>
                 {tagsToString()}
             </div>
                  }

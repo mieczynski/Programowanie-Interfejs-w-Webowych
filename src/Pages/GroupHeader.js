@@ -1,5 +1,5 @@
 import React from 'react';
-import './myStyles.css';
+import '../myStyles.css';
 
 const GroupHeader = () => (
     <header className="header">
