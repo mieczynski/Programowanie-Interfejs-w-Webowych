@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../myStyles.css';
-import {useAuthState} from "../Context";
+import { useAuthState } from "react-firebase-hooks/auth";
+import {auth} from "../Firebase/Initialize";
+import LogoutTable from "../Components/LogoutTable";
 
 function Header()   {
 
     return(
         <div>
-           <header className="header">
+            <LogoutTable/>
+            <header className="header">
             <div>Notice Board</div>
            </header>
-
         </div>
     );
 }

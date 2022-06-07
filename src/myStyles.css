@@ -145,6 +145,11 @@
     margin-right: auto;
     margin-left: auto;
 }
+.center-btn{
+    text-align:center;
+    justify-content: center;
+}
+
 
 .member-input{
     text-align:center;
@@ -184,33 +189,59 @@
 .loginFields{
     text-align:center;
     display: block;
-    text-align:center;
-    margin: 10px auto;
+    margin: 5px auto;
     font-size: 18px;
-    width: 180px;
+    width: 200px;
 }
 .loginBtn{
     padding: 5px;
-    width: 120px;
+    width: 140px;
     border-radius: 5px;
-    background: #01a2ce;
     margin-right: 10px;
+    margin-top: 10px;
+    border: none;
+    background: #06ab59;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.loginWithGoogleBtn{
+    padding: 5px;
+    width: 200px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: none;
+    background: #00afaf;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+.loginWithFacebookBtn{
+    padding: 5px;
+    width: 200px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: none;
+    background: #0066ff;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+.registerBtn{
+    padding: 5px;
+    width: 140px;
+    border-radius: 5px;
+    background: #bbcc09;
+    margin-top: 10px;
     border: none;
     color: white;
     cursor: pointer;
     font-size: 18px;
 }
 
-.registerBtn{
-    padding: 5px;
-    width: 120px;
-    border-radius: 5px;
-    background: #bbcc09;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 18px;
-}
 .error {
     font-size: 18px;
     color: #bb0000;
@@ -242,4 +273,38 @@
 .image{
     width: 40px;
     height: 60px;
+}
+
+.modal {
+    font-size: 12px;
+}
+.modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+}
+.modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+}
+.modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+}
+.modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
 }

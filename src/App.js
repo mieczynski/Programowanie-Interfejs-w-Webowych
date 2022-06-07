@@ -33,7 +33,6 @@ function App(){
         });
     }, []);
 
-
     if (noticesData.length !== 0) {
         noticesInitialData = noticesData["persons"];
     }

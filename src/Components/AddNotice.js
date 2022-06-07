@@ -1,6 +1,7 @@
 import React, {useRef, useState} from "react";
 import { useNavigate} from "react-router-dom"
 import axios from "axios";
+import Header from "../Pages/Header";
 
 
 function AddNotice({notices}) {
@@ -69,9 +70,7 @@ function AddNotice({notices}) {
 
         return (
             <div>
-                <header className="header">
-                    <div>Notice Board</div>
-                </header>
+                <Header />
                 <div className="newNoticeLayout">
                     <input className="input-notice" id="nameID" placeholder="Full Name" onChange={handleOnInput}/>
                     <input className="input-notice" id="emailID" placeholder="Email" onChange={handleOnInput}/>
