@@ -1,2 +1,2 @@
 # Programowanie-Interfejsow-Webowych
-Pliki z laboratorium 3 znajdują się w branchu lab3
+Pliki z laboratorium 5 znajdują się w branchu lab5
